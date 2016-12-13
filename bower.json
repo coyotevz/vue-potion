@@ -1,0 +1,22 @@
+{
+  "name": "vue-potion",
+  "main": "dist/vue-potion.js",
+  "version": "0.0.1",
+  "description": "The Potion client for Vue.js",
+  "homepage": "https://github.com/coyotevz/vue-potion",
+  "license": "MIT",
+  "keywords": [
+    "vue",
+    "xhr",
+    "http",
+    "potion",
+    "flask-potion",
+    "rest"
+  ],
+  "ignore": [
+    ".*",
+    "build",
+    "docs",
+    "package.json"
+  ]
+}

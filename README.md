@@ -2,6 +2,8 @@
 
 # vue-potion
 
+> A [Vue.js](http://vuejs.org) client for APIs written in Flask-Potion.
+
 The plugin for [Vue.js](http://vuejs.org) provides services for making web request and handling responses using a [XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) or JSONP.
 
 ## Features

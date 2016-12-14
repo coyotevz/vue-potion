@@ -2,8 +2,9 @@
  * Install plugin.
  */
 
-import Request from 'request'
-import Util, { options } from './util'
+import Potion from './potion'
+import Resources from './resources'
+import Util from './util'
 
 function plugin(Vue) {
   if (plugin.installed) {
@@ -12,12 +13,12 @@ function plugin(Vue) {
 
   Util(Vue)
 
-  Vue.request = Request
+  Vue.potion = Potion
 
   Object.defineProperties(Vue.prototype, {
-    $request: {
+    $potion: {
       get() {
-        return options(Vue.request, this, this.$options.request)
+        return new Resources(this)
       }
     },
   })

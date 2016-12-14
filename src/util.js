@@ -24,6 +24,10 @@ export function nextTrick(cb, ctx) {
   return util.nextTick(cb, ctx)
 }
 
+export function trim(str) {
+  return str.replace(/^\s*|\s*$/g, '')
+}
+
 export const isArray = Array.isArray
 
 export function isFunction(val) {
@@ -36,6 +40,22 @@ export function isObject(obj) {
 
 export function isPlainObject(obj) {
   return isObject(obj) && Object.getPrototypeOf(obj) === Object.prototype
+}
+
+export function each(obj, iterator) {
+  if (obj && typeof obj.length === 'number') {
+    for (let i = 0; i < obj.length; i++) {
+      iterator.call(obj[i], obj[i], i)
+    }
+  } else if (isObject(obj)) {
+    for (let key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        iterator.call(obj[key], obj[key], key)
+      }
+    }
+  }
+
+  return obj
 }
 
 function _merge(target, source, deep) {

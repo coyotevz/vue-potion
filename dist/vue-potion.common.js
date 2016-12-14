@@ -7,9 +7,25 @@
 'use strict';
 
 var Potion = {
-  init: function (options) {
+  init: function (api_root_url) {
+    var _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
+        _ref$schema_path = _ref.schema_path,
+        schema_path = _ref$schema_path === undefined ? '/schema' : _ref$schema_path,
+        _ref$fetch_schema = _ref.fetch_schema,
+        fetch_schema = _ref$fetch_schema === undefined ? true : _ref$fetch_schema;
+
     console.log('VuePotion inited!!, next we need to read api schemas');
-    console.log('this are options: received', options);
+    console.log('this are options received:', api_root_url, schema_path, fetch_schema);
+
+    this._api_root_url = api_root_url;
+    this._schema_path = schema_path;
+
+    if (fetch_schema) {
+      this._fetch_schema();
+    }
+  },
+  _fetch_schema: function () {
+    console.log('Needs to fetch:', this._api_root_url + this._schema_path);
   }
 };
 
